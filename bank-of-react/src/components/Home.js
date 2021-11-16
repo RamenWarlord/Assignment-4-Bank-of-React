@@ -11,7 +11,7 @@ function Home(props) {
       <h1>Bank of React</h1>
 
       <Link to="/userProfile">User Profile</Link>
-
+      <Link to="/debits">Debits</Link>
       <AccountBalance accountBalance={props.accountBalance} />
     </div>
   );
