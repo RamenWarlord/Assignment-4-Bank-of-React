@@ -23,6 +23,15 @@ function App() {
     });
   };
 
+  const addCredit = (creditInfo) => {
+    updateCredits(...credits, {
+      id: creditInfo.id,
+      desc: creditInfo.desc,
+      amount: creditInfo.amount,
+      date: creditInfo.date,
+    });
+  };
+
   const mockLogIn = (logInInfo) => {
     updateUserInfo((prevState) => ({
       ...prevState,
