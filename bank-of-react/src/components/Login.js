@@ -15,6 +15,11 @@ function Login(props){
         }))
     };
     
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        props.mockLogIn(user);
+        confirmRedirect(true);
+    }
 
     return(
         <div>
