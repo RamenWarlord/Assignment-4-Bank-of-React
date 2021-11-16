@@ -3,11 +3,18 @@ import { Redirect } from 'react-router-dom';
 
 function Login(props){
     const[user, updateUser] = useState({
-        userName ="",
-        password = "",
+        userName = '',
+        password = '',
     });
     const[redirect, confirmRedirect] = useState(false);
 
+    const handleChange = (e) =>{
+        updateUser((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value
+        }))
+    };
+    
 
     return(
         <div>
