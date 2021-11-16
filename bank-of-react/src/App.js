@@ -41,9 +41,9 @@ function App() {
 
   //react hook useEffect when passing an empty dependency array makes it act like componentDidMount where it only runs once
   useEffect(() => {
-    //insert api requests here
-    let debitResponse = apiCall("https://moj-api.herokuapp.com/debits");
-    let creditResponse = apiCall("https://moj-api.herokuapp.com/credits");
+    //grabs info from api links and adds it to the initial state
+    addDebit(apiCall("https://moj-api.herokuapp.com/debits"));
+    addCredit(apiCall("https://moj-api.herokuapp.com/credits"));
   }, []);
 
   //api call function
