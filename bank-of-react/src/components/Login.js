@@ -21,6 +21,10 @@ function Login(props){
         confirmRedirect(true);
     }
 
+    if(redirect){
+        return(<Redirect to="/userProfile"/>);
+    }
+
     return(
         <div>
         <form onSubmit={this.handleSubmit}>
