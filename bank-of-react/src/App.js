@@ -11,6 +11,14 @@ function App() {
     userName: "joe_shmo",
     memberSince: "07/23/96",
   });
+
+  const mockLogIn = (logInInfo) => {
+    updateUserInfo((prevState) => ({
+      ...prevState,
+      userName: logInInfo.userName,
+    }));
+  };
+
   return (
     <Router>
       <Switch>
