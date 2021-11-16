@@ -1,6 +1,7 @@
 import React from "react";
+import AccountBalance from "./AccountBalance";
 
-function Home() {
+function Home(props) {
   return (
     <div>
       <img
@@ -8,6 +9,8 @@ function Home() {
         alt="bank"
       />
       <h1>Bank of React</h1>
+
+      <AccountBalance accountBalance={props.accountBalance} />
     </div>
   );
 }
