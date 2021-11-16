@@ -2,11 +2,15 @@ import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import Home from "./components/Home";
 function App() {
   return (
     <Router>
-      <div className="App">Hello world</div>
+      <Switch>
+        <Route path="/">
+          <Home></Home>
+        </Route>
+      </Switch>
     </Router>
   );
 }
