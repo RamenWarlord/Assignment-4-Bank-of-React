@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 function UserProfile(props) {
   return (
     <div>
@@ -7,6 +7,8 @@ function UserProfile(props) {
 
       <div>Username: {props.userName}</div>
       <div>Member Since: {props.memberSince}</div>
+
+      <Link to="/">Return to Home</Link>
     </div>
   );
 }
