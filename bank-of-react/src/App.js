@@ -11,6 +11,17 @@ function App() {
     userName: "joe_shmo",
     memberSince: "07/23/96",
   });
+  const [debits, updateDebits] = useState([]);
+  const [credits, updateCredits] = useState([]);
+
+  const addDebit = (debitInfo) => {
+    updateDebits(...debits, {
+      id: debitInfo.id,
+      desc: debitInfo.desc,
+      amount: debitInfo.amount,
+      date: debitInfo.date,
+    });
+  };
 
   const mockLogIn = (logInInfo) => {
     updateUserInfo((prevState) => ({
