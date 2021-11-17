@@ -104,6 +104,14 @@ function App() {
             changeBalance={changeBalance}
           />
         </Route>
+        <Route path="/credits">
+          <Debits
+            creditInfo={credits}
+            addCredit={addCredit}
+            accountBalance={balance}
+            changeBalance={changeBalance}
+          />
+        </Route>
       </Switch>
     </Router>
   );
