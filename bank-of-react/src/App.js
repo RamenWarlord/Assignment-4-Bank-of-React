@@ -9,13 +9,17 @@ import Login from "./components/Login";
 import Debits from "./components/Debits";
 
 function App() {
-  const [balance, changeBalance] = useState(14568.27);
+  const [balance, updateBalance] = useState(14568.27);
   const [user, updateUserInfo] = useState({
     userName: "joe_shmo",
     memberSince: "07/23/96",
   });
   const [debits, updateDebits] = useState([]);
   const [credits, updateCredits] = useState([]);
+
+  const changeBalance = (change) => {
+    updateBalance((prevState) => (+prevState + +change).toFixed(2));
+  };
 
   const addDebit = (debitInfo) => {
     updateDebits((debits) => [
@@ -93,7 +97,12 @@ function App() {
           <Login user={user} mockLogIn={mockLogIn} />
         </Route>
         <Route path="/debits">
-          <Debits debitInfo={debits} addDebit={addDebit} />
+          <Debits
+            debitInfo={debits}
+            addDebit={addDebit}
+            accountBalance={balance}
+            changeBalance={changeBalance}
+          />
         </Route>
       </Switch>
     </Router>

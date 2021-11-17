@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import AccountBalance from "./AccountBalance";
 function Debits(props) {
   const [debits, updateDebits] = useState(props.debitInfo);
   const [newDebit, updateNewDebit] = useState({
@@ -19,20 +19,20 @@ function Debits(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateDebits((debits) => [
-      ...debits,
-      {
-        id: debits.length,
-        description: newDebit.description,
-        amount: newDebit.amount,
-        date: Date(),
-      },
-    ]);
+    updateNewDebit((prevState) => ({
+      ...prevState,
+      id: props.debitInfo.length,
+      date: Date(),
+    }));
+    props.addDebit(newDebit);
+    updateDebits((prevState) => [...prevState, newDebit]);
+    props.changeBalance(newDebit.amount);
   };
 
   return (
     <div>
       <h1>Debits</h1>
+      <AccountBalance accountBalance={props.accountBalance} />
       <ul>
         {debits.map((debit) => (
           <li key={debit.id}>
@@ -55,7 +55,7 @@ function Debits(props) {
             />
             <label htmlFor="amount">amount</label>
             <input
-              type="text"
+              type="number"
               name="amount"
               onChange={handleChange}
               value={newDebit.amount}
