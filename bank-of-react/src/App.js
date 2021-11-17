@@ -7,7 +7,7 @@ import Home from "./components/Home";
 import UserProfile from "./components/UserProfile";
 import Login from "./components/Login";
 import Debits from "./components/Debits";
-
+import Credits from "./components/Credits";
 function App() {
   const [balance, updateBalance] = useState(14568.27);
   const [user, updateUserInfo] = useState({
@@ -81,11 +81,6 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home accountBalance={balance} />
-          <pre>
-            {debits.map((a) => {
-              <li key={a.id}>{a}</li>;
-            })}
-          </pre>
         </Route>
         <Route path="/userProfile">
           <UserProfile
@@ -100,6 +95,14 @@ function App() {
           <Debits
             debitInfo={debits}
             addDebit={addDebit}
+            accountBalance={balance}
+            changeBalance={changeBalance}
+          />
+        </Route>
+        <Route path="/credits">
+          <Credits
+            creditInfo={credits}
+            addCredit={addCredit}
             accountBalance={balance}
             changeBalance={changeBalance}
           />
