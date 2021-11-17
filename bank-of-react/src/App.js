@@ -51,27 +51,37 @@ function App() {
   //react hook useEffect when passing an empty dependency array makes it act like componentDidMount where it only runs once
   useEffect(() => {
     //grabs info from api links and adds it to the initial state
-    addDebit(apiCall("https://moj-api.herokuapp.com/debits"));
-    addCredit(apiCall("https://moj-api.herokuapp.com/credits"));
-  }, []);
-
-  //api call function
-  async function apiCall(apiUrl) {
-    try {
-      axios.get(apiUrl).then((res) => {
-        console.log(res.data);
-        return res.data;
+    axios
+      .get("https://moj-api.herokuapp.com/debits")
+      .then((res) => {
+        console.log(res);
+        updateDebits(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    } catch (error) {
-      console.error(error);
-    }
-  }
+
+    axios
+      .get("https://moj-api.herokuapp.com/credits")
+      .then((res) => {
+        console.log(res);
+        updateCredits(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <Router>
       <Switch>
         <Route exact path="/">
           <Home accountBalance={balance} />
+          <pre>
+            {debits.map((a) => {
+              <li key={a.id}>{a}</li>;
+            })}
+          </pre>
         </Route>
         <Route path="/userProfile">
           <UserProfile
