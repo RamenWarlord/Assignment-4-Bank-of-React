@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import axios from "axios";
 import Home from "./components/Home";
 import UserProfile from "./components/UserProfile";
 import Login from "./components/Login";
@@ -29,12 +30,15 @@ function App() {
   };
 
   const addCredit = (creditInfo) => {
-    updateCredits(...credits, {
-      id: creditInfo.id,
-      desc: creditInfo.desc,
-      amount: creditInfo.amount,
-      date: creditInfo.date,
-    });
+    updateCredits((credits) => [
+      ...credits,
+      {
+        id: creditInfo.id,
+        desc: creditInfo.desc,
+        amount: creditInfo.amount,
+        date: creditInfo.date,
+      },
+    ]);
   };
 
   const mockLogIn = (logInInfo) => {
@@ -48,17 +52,16 @@ function App() {
   useEffect(() => {
     //grabs info from api links and adds it to the initial state
     addDebit(apiCall("https://moj-api.herokuapp.com/debits"));
-    console.log(debits);
     addCredit(apiCall("https://moj-api.herokuapp.com/credits"));
   }, []);
 
   //api call function
   async function apiCall(apiUrl) {
     try {
-      let response = await fetch(apiUrl); //'https://moj-api.herokuapp.com/debits'
-      let jsonResponse = await response.json();
-      console.log(jsonResponse);
-      return jsonResponse;
+      axios.get(apiUrl).then((res) => {
+        console.log(res.data);
+        return res.data;
+      });
     } catch (error) {
       console.error(error);
     }
