@@ -11,6 +11,25 @@ function Credits(props) {
     date: "",
   });
 
+  const handleChange = (e) => {
+    updateNewCredit((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateNewCredit((prevState) => ({
+      ...prevState,
+      id: props.creditInfo.length,
+      date: Date(),
+    }));
+    props.addCredit(newCredit);
+    updateCredits((prevState) => [...prevState, newCredit]);
+    props.changeBalance(newCredit.amount);
+  };
+
   return (
     <div>
       <h1>Credits</h1>
