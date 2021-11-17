@@ -8,6 +8,7 @@ function Home(props) {
 
       <Link to="/userProfile">User Profile</Link>
       <Link to="/debits">Debits</Link>
+      <Link to="/credits">Credits</Link>
       <AccountBalance accountBalance={props.accountBalance} />
     </div>
   );
