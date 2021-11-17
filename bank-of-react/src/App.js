@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import UserProfile from "./components/UserProfile";
 import Login from "./components/Login";
+import Debits from "./components/Debits";
+
 function App() {
   const [balance, changeBalance] = useState(14568.27);
   const [user, updateUserInfo] = useState({
@@ -15,12 +17,15 @@ function App() {
   const [credits, updateCredits] = useState([]);
 
   const addDebit = (debitInfo) => {
-    updateDebits(...debits, {
-      id: debitInfo.id,
-      desc: debitInfo.desc,
-      amount: debitInfo.amount,
-      date: debitInfo.date,
-    });
+    updateDebits((debits) => [
+      ...debits,
+      {
+        id: debitInfo.id,
+        desc: debitInfo.desc,
+        amount: debitInfo.amount,
+        date: debitInfo.date,
+      },
+    ]);
   };
 
   const addCredit = (creditInfo) => {
@@ -43,6 +48,7 @@ function App() {
   useEffect(() => {
     //grabs info from api links and adds it to the initial state
     addDebit(apiCall("https://moj-api.herokuapp.com/debits"));
+    console.log(debits);
     addCredit(apiCall("https://moj-api.herokuapp.com/credits"));
   }, []);
 
@@ -51,6 +57,7 @@ function App() {
     try {
       let response = await fetch(apiUrl); //'https://moj-api.herokuapp.com/debits'
       let jsonResponse = await response.json();
+      console.log(jsonResponse);
       return jsonResponse;
     } catch (error) {
       console.error(error);
@@ -71,6 +78,9 @@ function App() {
         </Route>
         <Route exact path="/login">
           <Login user={user} mockLogIn={mockLogIn} />
+        </Route>
+        <Route path="/debits">
+          <Debits debitInfo={debits} />
         </Route>
       </Switch>
     </Router>
