@@ -22,7 +22,7 @@ function App() {
       ...debits,
       {
         id: debitInfo.id,
-        desc: debitInfo.desc,
+        description: debitInfo.description,
         amount: debitInfo.amount,
         date: debitInfo.date,
       },
@@ -34,7 +34,7 @@ function App() {
       ...credits,
       {
         id: creditInfo.id,
-        desc: creditInfo.desc,
+        description: creditInfo.description,
         amount: creditInfo.amount,
         date: creditInfo.date,
       },
@@ -93,7 +93,7 @@ function App() {
           <Login user={user} mockLogIn={mockLogIn} />
         </Route>
         <Route path="/debits">
-          <Debits debitInfo={debits} />
+          <Debits debitInfo={debits} addDebit={addDebit} />
         </Route>
       </Switch>
     </Router>
