@@ -1,5 +1,6 @@
+### This is assignment 4 bank of react for my practical web development class.
 Hosted on github pages: https://ramenwarlord.github.io/Assignment-4-Bank-of-React/
-This is assignment 4 bank of react for my practical web development class.
+
 
 
 ### Below I'm going to write stuff for myself, feel free to ignore it
