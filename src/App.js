@@ -77,7 +77,7 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <Router basename="/Assignment-4-Bank-of-React">
       <Switch>
         <Route exact path="/">
           <Home accountBalance={balance} />
