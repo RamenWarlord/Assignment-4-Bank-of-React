@@ -4,6 +4,7 @@ import AccountBalance from "./AccountBalance";
 import "bootstrap/dist/css/bootstrap.css";
 
 function Credits(props) {
+  //state init
   const [credits, updateCredits] = useState(props.creditInfo);
   const [newCredit, updateNewCredit] = useState({
     id: "",
@@ -19,6 +20,7 @@ function Credits(props) {
     }));
   };
 
+  //same as debit, finalize new transac, add to appjs and creditjs array and update balance
   const handleSubmit = (e) => {
     e.preventDefault();
     updateNewCredit((prevState) => ({
