@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import AccountBalance from "./AccountBalance";
+import "bootstrap/dist/css/bootstrap.css";
+
 function Debits(props) {
   const [debits, updateDebits] = useState(props.debitInfo);
   const [newDebit, updateNewDebit] = useState({
@@ -41,43 +42,55 @@ function Debits(props) {
     props.addDebit(newDebit);
     props.changeBalance(newDebit.amount);
   };
+
   if (debits) {
     return (
-      <div>
-        <h1>Debits</h1>
-        <AccountBalance accountBalance={props.accountBalance} />
-        <ul>
-          {debits.map((debit) => (
-            <li key={debit.id}>
-              Item: {debit.description} <br />
-              Cost: ${debit.amount} <br />
-              Date: {debit.date}
-            </li>
-          ))}
-        </ul>
-
-        <div>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="description">Description</label>
-              <input
-                type="text"
-                name="description"
-                onChange={handleChange}
-                value={newDebit.description}
-              />
-              <label htmlFor="amount">amount</label>
-              <input
-                type="number"
-                name="amount"
-                onChange={handleChange}
-                value={newDebit.amount}
-              />
-            </div>
-            <button type="submit">Add new debit</button>
-          </form>
+      <div className="container">
+        <h1 className="d-flex justify-content-center flex-wrap">Debits</h1>
+        <div className="d-flex justify-content-center flex-wrap">
+          <AccountBalance accountBalance={props.accountBalance} />
         </div>
-        <Link to="/">Return to Home</Link>
+        <div className="d-flex justify-content-center flex-wrap">
+          <Link to="/">Return to Home</Link>
+        </div>
+        <div className="row">
+          <div className="col d-flex justify-content-center flex-wrap">
+            <ul>
+              {debits.map((debit) => (
+                <li key={debit.id}>
+                  Item: {debit.description} <br />
+                  Cost: ${debit.amount} <br />
+                  Date: {debit.date}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="col d-flex justify-content-center flex-wrap">
+            <div>
+              <form onSubmit={handleSubmit}>
+                <div>
+                  <label htmlFor="description">Item Description </label>
+                  <input
+                    type="text"
+                    name="description"
+                    onChange={handleChange}
+                    value={newDebit.description}
+                  />
+                  <br />
+                  <label htmlFor="amount">Cost of Item </label>
+                  <input
+                    type="number"
+                    name="amount"
+                    onChange={handleChange}
+                    value={newDebit.amount}
+                  />
+                  <br />
+                </div>
+                <button type="submit">Add new debit</button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     );
   } else {
