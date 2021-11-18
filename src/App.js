@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Debits from "./components/Debits";
 import Credits from "./components/Credits";
 function App() {
+  //initializes state hooks for balance, user, credits and debits
   const [balance, updateBalance] = useState(14568.27);
   const [user, updateUserInfo] = useState({
     userName: "joe_shmo",
@@ -17,10 +18,12 @@ function App() {
   const [debits, updateDebits] = useState([]);
   const [credits, updateCredits] = useState([]);
 
+  //method to add change to balance within 2 decimals
   const changeBalance = (change) => {
     updateBalance((prevState) => (+prevState + +change).toFixed(2));
   };
 
+  //method to add a debit transaction to the debits array, takes in an object and adds it to the array
   const addDebit = (debitInfo) => {
     updateDebits((debits) => [
       ...debits,
@@ -33,6 +36,7 @@ function App() {
     ]);
   };
 
+  //same as addDebit but for credit
   const addCredit = (creditInfo) => {
     updateCredits((credits) => [
       ...credits,
