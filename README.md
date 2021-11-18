@@ -1,3 +1,16 @@
+Hosted on github pages: https://ramenwarlord.github.io/Assignment-4-Bank-of-React/
+This is assignment 4 bank of react for my practical web development class.
+
+Below I'm going to write stuff for myself
+Improvements/To Do:
+
+Issues I ran into:
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
