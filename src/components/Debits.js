@@ -4,7 +4,9 @@ import AccountBalance from "./AccountBalance";
 import "bootstrap/dist/css/bootstrap.css";
 
 function Debits(props) {
+  //init state hooks taking debit info from appjs
   const [debits, updateDebits] = useState(props.debitInfo);
+  //new debit for the form where you input a new transaction
   const [newDebit, updateNewDebit] = useState({
     id: "",
     description: "",
@@ -31,6 +33,7 @@ function Debits(props) {
     }));
   };
 
+  //on submit, add the transaction to debitsjs array, debits array in appjs and update the balance
   const handleSubmit = (e) => {
     e.preventDefault();
     updateNewDebit((prevState) => ({
