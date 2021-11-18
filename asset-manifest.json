@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/Assignment-4-Bank-of-React/bank-of-react/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/Assignment-4-Bank-of-React/bank-of-react/static/js/main.55396f4a.chunk.js",
+    "main.js.map": "/Assignment-4-Bank-of-React/bank-of-react/static/js/main.55396f4a.chunk.js.map",
+    "runtime-main.js": "/Assignment-4-Bank-of-React/bank-of-react/static/js/runtime-main.42c8cd69.js",
+    "runtime-main.js.map": "/Assignment-4-Bank-of-React/bank-of-react/static/js/runtime-main.42c8cd69.js.map",
+    "static/css/2.a75f5a2c.chunk.css": "/Assignment-4-Bank-of-React/bank-of-react/static/css/2.a75f5a2c.chunk.css",
+    "static/js/2.15ee77bd.chunk.js": "/Assignment-4-Bank-of-React/bank-of-react/static/js/2.15ee77bd.chunk.js",
+    "static/js/2.15ee77bd.chunk.js.map": "/Assignment-4-Bank-of-React/bank-of-react/static/js/2.15ee77bd.chunk.js.map",
+    "static/js/3.d7cea140.chunk.js": "/Assignment-4-Bank-of-React/bank-of-react/static/js/3.d7cea140.chunk.js",
+    "static/js/3.d7cea140.chunk.js.map": "/Assignment-4-Bank-of-React/bank-of-react/static/js/3.d7cea140.chunk.js.map",
+    "index.html": "/Assignment-4-Bank-of-React/bank-of-react/index.html",
+    "static/css/2.a75f5a2c.chunk.css.map": "/Assignment-4-Bank-of-React/bank-of-react/static/css/2.a75f5a2c.chunk.css.map",
+    "static/css/main.8c8b27cf.chunk.css.map": "/Assignment-4-Bank-of-React/bank-of-react/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.15ee77bd.chunk.js.LICENSE.txt": "/Assignment-4-Bank-of-React/bank-of-react/static/js/2.15ee77bd.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/Assignment-4-Bank-of-React/bank-of-react/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.42c8cd69.js",
+    "static/css/2.a75f5a2c.chunk.css",
+    "static/js/2.15ee77bd.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.55396f4a.chunk.js"
+  ]
+}
