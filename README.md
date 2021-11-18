@@ -1,11 +1,17 @@
 Hosted on github pages: https://ramenwarlord.github.io/Assignment-4-Bank-of-React/
 This is assignment 4 bank of react for my practical web development class.
 
-Below I'm going to write stuff for myself
-Improvements/To Do:
 
-Issues I ran into:
+### Below I'm going to write stuff for myself, feel free to ignore it
 
+### Improvements/To Do: 
+-better css
+-fix date (format is wrong, first created item doesn't have date)
+-seperate creation form from debits/credits into its own component
+-potentionally convert it to fullstack and host it on a server instead
+
+### Memorable Issues I ran into:
+Hosting on GHpages: Followed guidelines, it wouldnt work. After struggling for a good hour+, I saw in f12 that console was logging api call info from axios which i have in my code. From this, I knew that react was working as intended and the page was deployed properly but the webpage wasnt showing the contents properly and showed a blank page. I googled in this specific direction and managed to find this: https://github.com/gitname/react-gh-pages/issues/3 where they picked up on someone else who had the same error. They were using router and because router works off root for localhost it works properly when testing but when hosted it doesnt. This is because github isnt root and so I had to specify a basename for the router and viola it worked.
 
 
 
