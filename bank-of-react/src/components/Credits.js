@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import AccountBalance from "./AccountBalance";
+import "bootstrap/dist/css/bootstrap.css";
 
 function Credits(props) {
   const [credits, updateCredits] = useState(props.creditInfo);
@@ -31,41 +32,50 @@ function Credits(props) {
   };
 
   return (
-    <div>
-      <h1>Credits</h1>
-      <AccountBalance accountBalance={props.accountBalance} />
-      <ul>
-        {credits.map((credit) => (
-          <li key={credit.id}>
-            Item: {credit.description} <br />
-            Cost: ${credit.amount} <br />
-            Date: {credit.date}
-          </li>
-        ))}
-      </ul>
-
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="description">Description</label>
-            <input
-              type="text"
-              name="description"
-              onChange={handleChange}
-              value={newCredit.description}
-            />
-            <label htmlFor="amount">amount</label>
-            <input
-              type="number"
-              name="amount"
-              onChange={handleChange}
-              value={newCredit.amount}
-            />
-          </div>
-          <button type="submit">Add new credit</button>
-        </form>
+    <div className="container">
+      <h1 className="d-flex justify-content-center flex-wrap">Credits</h1>
+      <div className="d-flex justify-content-center flex-wrap">
+        <AccountBalance accountBalance={props.accountBalance} />
       </div>
-      <Link to="/">Return to Home</Link>
+      <div className="d-flex justify-content-center flex-wrap">
+        <Link to="/">Return to Home</Link>
+      </div>
+      <div className="row">
+        <div className="col d-flex justify-content-center flex-wrap">
+          <ul>
+            {credits.map((credit) => (
+              <li key={credit.id}>
+                Item: {credit.description} <br />
+                Cost: ${credit.amount} <br />
+                Date: {credit.date}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="col d-flex justify-content-center flex-wrap">
+          <div>
+            <form onSubmit={handleSubmit}>
+              <div>
+                <label htmlFor="description">Description</label>
+                <input
+                  type="text"
+                  name="description"
+                  onChange={handleChange}
+                  value={newCredit.description}
+                />
+                <label htmlFor="amount">amount</label>
+                <input
+                  type="number"
+                  name="amount"
+                  onChange={handleChange}
+                  value={newCredit.amount}
+                />
+              </div>
+              <button type="submit">Add new credit</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
