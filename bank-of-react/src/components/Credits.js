@@ -56,20 +56,22 @@ function Credits(props) {
           <div>
             <form onSubmit={handleSubmit}>
               <div>
-                <label htmlFor="description">Description</label>
+                <label htmlFor="description">Item Description</label>
                 <input
                   type="text"
                   name="description"
                   onChange={handleChange}
                   value={newCredit.description}
                 />
-                <label htmlFor="amount">amount</label>
+                <br />
+                <label htmlFor="amount">Cost of Item</label>
                 <input
                   type="number"
                   name="amount"
                   onChange={handleChange}
                   value={newCredit.amount}
                 />
+                <br />
               </div>
               <button type="submit">Add new credit</button>
             </form>
